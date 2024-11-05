@@ -17,7 +17,8 @@ import java.util.Objects;
 
 public class JwtService {
 
-  private static final String SecretKey = "S3cureK3yWith$pec!alChar@ctersAndLength";
+  //Sin caracateres espciales ya que se usa base64 y no afecta a la url
+  private static final String SecretKey = "QnFybGZMVzJmbkpFclpGQ3NyZzVZSkpINzkwbkVzWTM=";
   //User implementa a UserDetails
   public String getToken(UserDetails userDetails){
     //Generar el token

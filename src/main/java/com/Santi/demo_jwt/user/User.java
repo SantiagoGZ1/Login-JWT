@@ -13,7 +13,6 @@ import java.util.List;
 @Data
 @Builder
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
 //No se pueden repetir los nombres de usuario
