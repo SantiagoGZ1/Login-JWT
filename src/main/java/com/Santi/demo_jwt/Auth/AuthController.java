@@ -17,7 +17,7 @@ public class AuthController {
   //Acceso a metodos de login y response para acceder al token
   private final AuthService authService;
 
-  @PostMapping(value = "/login")
+  @PostMapping("/login")
   //responseEntity: Representa las respuestas http de forma flexible
   public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest) {
     return ResponseEntity.ok(authService.login(loginRequest));
