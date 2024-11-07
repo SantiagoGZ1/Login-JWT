@@ -22,18 +22,18 @@ public class AuthService {
 
   public AuthResponse login(LoginRequest loginRequest) {
     authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-    UserDetails user = userRepository.findByUsername(loginRequest.getUsername()).orElseThrow();
-    String token = jwtService.getToken(user);
-    return AuthResponse.builder()
-        .token(token)
-        .build();
+    UserDetails user = userRepository.findByUsername(loginRequest.getUsername()).orElseThrow();//busqueda del usario
+    String token = jwtService.getToken(user);//obtención del token
+    return AuthResponse.builder()//patrón de diseño builder para la creación de objetos
+        .token(token)//token
+        .build();//construcción del objeto
   }
 
   public AuthResponse register(RegisterRequest registerRequest) {
     //patrón de diseño builder para la creación de objetos
     User user = User.builder()
         .username(registerRequest.getUsername())
-        .password(passwordEncoder.encode(registerRequest.getPassword()))
+        .password(passwordEncoder.encode(registerRequest.getPassword())) //codificación de password
         .firstName(registerRequest.getFirstName())
         .lastName(registerRequest.lastName)
         .country(registerRequest.getCountry())
